@@ -1,5 +1,6 @@
-import AmazonHomePage from "../modules/pages/AmazonHomePage";
-import AmazonSearchResultPage from "../modules/pages/AmazonSearchResultPage";
+import AmazonHomePage from "../../modules/pages/AmazonHomePage";
+import AmazonSearchResultPage from "../../modules/pages//AmazonSearchResultPage";
+
 
 describe('Search item list', () => {
     it('Should able to see the search result', () => {

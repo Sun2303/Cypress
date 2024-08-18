@@ -1,4 +1,5 @@
-const { SRHomePage } = require("../modules/pages/SRHomePage");
+const { SRHomePage } = require("../../modules/pages/SRHomePage");
+
 
 describe('SR Homepage Test', () => {
     it('should be able to print all titles', () => {

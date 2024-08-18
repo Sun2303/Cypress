@@ -1,5 +1,5 @@
-import DemoBlazePage from "../modules/pages/DemoBlazePage";
-import productBlaze from "../fixtures/DemoBlazeProducts.json"
+import DemoBlazePage from "../../modules/pages/DemoBlazePage";
+import productBlaze from "../../fixtures/DemoBlazeProducts.json"
 
 describe('DemoBlaze', () => {
     it('Should able to get the Name and Price for specified product', () => {

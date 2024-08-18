@@ -1,25 +1,36 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+/**
+ * Custom command to log in a user by API
+ * @memberof cy
+ * @method loginViaAPI
+ */
+Cypress.Commands.add('loginViaAPI', (username, password) => {
+    cy.request({
+        url: 'https://api.demoblaze.com/login',
+        method: 'POST',
+        headers: {
+            contentType: "application/json"
+        },
+        body: {
+            username: username,
+            password: btoa(password)
+        }
+    }).then(res => {
+        const authToken = res.body.split('Auth_token: ')[1];
+        cy.log(authToken)
+        cy.setCookie('tokenp_', authToken)
+    })
+})
+
+/**
+ * Custom commad to log in a user by UI
+ * @memberof cy
+ * @method loginViaUI
+ */
+Cypress.Commands.add('loginViaUI', () => {
+cy.get('#login2').click()
+cy.wait(500)
+cy.get('#loginusername').type('suncd')
+cy.get('#loginpassword').type('admin')
+cy.get('button[onclick="logIn()"]').click()
+})
+

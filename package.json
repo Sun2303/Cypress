@@ -4,13 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "cypress open",
-    "test": "cypress run --browser chrome --headed"
+    "test": "cypress open",
+    "e2e:chrome": "cypress run --browser chrome --headed",
+    "e2e:testsuite": "cypress run --spec 'cypress/tests/backup/*'"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "cypress": "13.13.2"
+  },
+  "dependencies": {
+    "cypress-plugin-api": "^2.11.2"
   }
 }

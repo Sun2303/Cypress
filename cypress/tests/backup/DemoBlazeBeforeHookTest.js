@@ -1,5 +1,5 @@
-import DemoBlazePage from "../modules/pages/DemoBlazePage";
-import { HomePageAPI } from "../support/HomePageAPI";
+import DemoBlazePage from "../../modules/pages/DemoBlazePage";
+import { HomePageAPI } from "../../support/HomePageAPI";
 
 
 describe('DemoBlaze', () => {
